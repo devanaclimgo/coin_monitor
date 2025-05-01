@@ -1,5 +1,3 @@
-require 'pry'
-
 class HomeController < ApplicationController
   # USD-BRL
   # EUR-BRL
