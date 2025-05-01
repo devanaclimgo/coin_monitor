@@ -7,5 +7,6 @@ class HomeController < ApplicationController
     @chart_data = []
 
     url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
+    response = Net::HTTP.get(url)
   end
 end
