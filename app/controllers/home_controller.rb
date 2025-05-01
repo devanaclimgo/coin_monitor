@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   def index
     @chart_data = []
 
-    url = URI("https://economia.awesomeapi.com.br/json/daily/:moeda/:numero_dias")
+    url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
   end
 end
