@@ -20,5 +20,7 @@ class HomeController < ApplicationController
 
       hash[date] = rate
     end
+
+    @chart_data = hash
   end
 end
