@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 class HomeController < ApplicationController
   # USD-BRL
   # EUR-BRL
