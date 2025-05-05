@@ -11,6 +11,11 @@ class HomeController < ApplicationController
 
     url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
     response = Net::HTTP.get(url)
-    
+    data = JSON.parse(response)
+
+    data.each do |entry|
+      date = entry['timestamp']
+      rate = entry['high']
+    end
   end
 end
