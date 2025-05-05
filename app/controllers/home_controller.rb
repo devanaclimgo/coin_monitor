@@ -13,9 +13,12 @@ class HomeController < ApplicationController
     response = Net::HTTP.get(url)
     data = JSON.parse(response)
 
+    hash = {}
     data.each do |entry|
       date = entry['timestamp']
       rate = entry['high']
+
+      hash[date] = rate
     end
   end
 end
