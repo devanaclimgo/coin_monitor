@@ -11,7 +11,6 @@ class HomeController < ApplicationController
 
     url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
     response = Net::HTTP.get(url)
-
-    binding.pry
+    
   end
 end
