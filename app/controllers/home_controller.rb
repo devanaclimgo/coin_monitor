@@ -15,7 +15,7 @@ class HomeController < ApplicationController
 
     hash = {}
     data.each do |entry|
-      date = Time.at(entry['timestamp'].to_i)
+      date = Time.at(entry['timestamp'].to_i).strftime("%d/%m/%Y")
       rate = entry['high']
 
       hash[date] = rate
