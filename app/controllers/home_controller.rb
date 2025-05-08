@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     @chart_data = []
 
     CURRENCIES.each do |currency|
-      url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
+      url = URI("https://economia.awesomeapi.com.br/json/daily/#{currency[:code]}/30")
       response = Net::HTTP.get(url)
       data = JSON.parse(response)
 
