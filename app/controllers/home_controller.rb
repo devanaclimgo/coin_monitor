@@ -2,9 +2,12 @@ require 'net/http'
 require 'json'
 
 class HomeController < ApplicationController
-  # USD-BRL
-  # EUR-BRL
-  # BTC-BRL
+
+  CURRENCIES = {
+    code: 'USD-BRL',
+    code: 'EUR-BRL',
+    code: 'BTC-BRL'
+  }
 
   def index
     @chart_data = []
