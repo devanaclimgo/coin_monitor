@@ -12,18 +12,20 @@ class HomeController < ApplicationController
   def index
     @chart_data = []
 
-    url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
-    response = Net::HTTP.get(url)
-    data = JSON.parse(response)
+    CURRENCIES.each do |currency|
+      url = URI("https://economia.awesomeapi.com.br/json/daily/USD-BRL/30")
+      response = Net::HTTP.get(url)
+      data = JSON.parse(response)
 
-    hash = {}
-    data.each do |entry|
-      date = Time.at(entry['timestamp'].to_i)
-      rate = entry['high']
+      hash = {}
+      data.each do |entry|
+        date = Time.at(entry['timestamp'].to_i)
+        rate = entry['high']
 
-      hash[date] = rate
+        hash[date] = rate
+      end
+
+      @chart_data = hash
     end
-
-    @chart_data = hash
   end
 end
