@@ -25,7 +25,7 @@ class HomeController < ApplicationController
         hash[date] = rate
       end
 
-      @chart_data << { data: hash }
+      @chart_data << { name: currency[:code], data: hash }
     end
   end
 end
