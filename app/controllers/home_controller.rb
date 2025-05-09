@@ -3,11 +3,11 @@ require 'json'
 
 class HomeController < ApplicationController
 
-  CURRENCIES = {
-    code: 'USD-BRL',
-    code: 'EUR-BRL',
-    code: 'BTC-BRL'
-  }
+  CURRENCIES = [
+    { code: 'USD-BRL' },
+    { code: 'EUR-BRL' },
+    { code: 'BTC-BRL' }
+  ]
 
   def index
     @chart_data = []
