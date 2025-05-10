@@ -1,9 +1,25 @@
-version: '3'
 services:
-  app:
-    build: .
-    ports:
-      - "3000:80"
+  db:
+    image: postgres:15
     environment:
-      RAILS_MASTER_KEY: your_master_key_here
-    restart: unless-stopped
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/rails
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/coin_monitor_development
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
