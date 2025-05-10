@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      RAILS_MASTER_KEY: your_master_key_here
+    restart: unless-stopped
