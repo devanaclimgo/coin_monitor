@@ -1,4 +1,4 @@
-FROM ruby:3.0.0-alpine
+FROM ruby:3.1.0-alpine
 
 RUN apk add --update --virtual \
     runtime-deps \
@@ -24,7 +24,8 @@ RUN apk add --update --virtual \
 WORKDIR /app
 COPY . /app/
 
-ENV BUNDLE_PATH /gems
+ENV BUNDLE_PATH=/gems
+RUN gem install bundler:2.6.8
 RUN yarn install
 RUN bundle install
 
