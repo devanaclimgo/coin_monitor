@@ -1,4 +1,14 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
+   begin
+    1/0
+  rescue => e
+    Sentry.capture_exception(e)
+  end
+
+  # Test message capture
+  Sentry.capture_message("Sentry test message from Rails")
+  
+  render plain: "Sentry test completed - check your Sentry dashboard"
+  
   allow_browser versions: :modern
 end
